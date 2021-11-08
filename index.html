@@ -14,6 +14,10 @@
             border:1px solid black;
 
         }
+        #searchbar{
+            padding-top:20px;
+
+        }
         #options{
             display:flex;
             justify-content: space-between;
@@ -29,6 +33,10 @@
 <body>
     <div class="navbar">
         <h3><a href="/">Home</a></h3>
+        <div id="searchbar">
+            <input type="text" placeholder='Search Meal'>
+            <button>search</button>
+        </div>
         <div id="options">
             <h3><a href="menu.html">Menu</a></h3>
             <h3><a href="cart.html">Cart</a></h3>
@@ -37,7 +45,16 @@
 
         </div>
     </div>
+    <div id="container"></div>
 
 
 </body>
 </html>
+<script>
+    async function getfood(){
+        let res = await fetch(`www.themealdb.com/api/json/v1/1/randomselection.php?`);
+        let data = await res.json();
+        console.log(res.meals);
+    }
+    getfood();
+</script>
